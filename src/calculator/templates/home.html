@@ -1,0 +1,180 @@
+{% load staticfiles %}
+<html>
+<head lang="en">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Calculator</title>
+	<!-- Bootstrap core CSS -->
+	<link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+	<link href="{% static 'css/custom.css' %}" rel="stylesheet">
+</head>
+<body>
+	<nav class="navbar navbar-inverse head">
+		<div class="container-fluid">
+			<div class="navbar-header">				
+				<a class="navbar-brand" href="">n Base Calculator</a>
+			</div>
+		</div>
+	</nav>
+
+	<div class="panel panel-default">
+		<div class="panel-body">
+			<label class="padding-label">n Base Calculator: It can perform operations on Base upto 712.</label>
+		</div>
+	</div>
+	<div class="row">
+		<div class="panel panel-default size col-md-3">
+			<div class="panel-body ">
+
+				<strong class="text-align">Conversion Chart</strong>
+
+				<table class="table table-striped tablo">
+					<tr>
+						<th>Notation</th><th>Number</th>
+					</tr>
+					<tr>
+						<td>a</td>
+						<td>10</td>
+					</tr>
+					<tr>
+						<td>b</td>
+						<td>11</td>
+					</tr>
+					<tr>
+						<td>c</td>
+						<td>12</td>
+					</tr>
+					<tr>
+						<td>d</td>
+						<td>13</td>
+					</tr>
+					<tr>
+						<td>e</td>
+						<td>14</td>
+					</tr>
+					<tr>
+						<td>--</td>
+						<td>--</td>
+					</tr>
+					<tr>
+						<td>y</td>
+						<td>34</td>
+					</tr>
+					<tr>
+						<td>z</td>
+						<td>35</td>
+					</tr>
+					<tr>
+						<td>Aa</td>
+						<td>36</td>
+					</tr>
+					<tr>
+						<td>Ab</td>
+						<td>37</td>
+					</tr>
+					<tr>
+						<td>--</td>
+						<td>--</td>
+					</tr>
+					<tr>
+						<td>--</td>
+						<td>--</td>
+					</tr>
+					<tr>
+						<td>Zy</td>
+						<td>710</td>
+					</tr>
+					<tr>
+						<td>Zz</td>
+						<td>711</td>
+					</tr>
+
+				</table>
+			</div>
+		</div>
+		<div class="col-md-9">
+			<form method="POST" action="">{% csrf_token%}
+				<div class="form-group">
+					<div class="row">
+						<div class="col-md-3 col-md-offset-1">
+							<label class="col-md-8 text-align">Enter Base:</label> 
+							<input type="number" name="txtBase1" class="form-control text-box-size" min="2" max="712" value="{{base1}}" class="text-box-size"  required="true"></input>
+						</div>
+						<div class="col-md-3 col-md-offset-5">
+							<label class="col-md-8 text-align">Enter Base:</label> 
+							<input type="number" name="txtBase2" class="form-control text-box-size" min="2" max="712" value="{{base2}}" class="text-box-size"required="true"></input>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-md-3 col-md-offset-5">
+							<label class="dropdown">Choose Operation:</label> 
+							<select name="dropdown">
+								<option selected="selected" disabled>Select:</option>
+								<option value="Add">+</option>
+								<option value="Subtract">-</option>
+								<option value="Multiply">*</option>
+							</select>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-md-3 col-md-offset-1">
+							<label class="col-md-8 text-align">Enter Number:</label> 
+							<input type="text" name="txtNumber1" value="{{number1}}" class="form-control text-box-size" maxlength="20" required pattern="[a-zA-Z0-9]+"></input>
+						</div>
+						<div class="col-md-3 col-md-offset-5">
+							<label class="col-md-8 text-align">Enter Number:</label> 
+							<input type="text" name="txtNumber2" value="{{number2}}" class="form-control text-box-size" maxlength="20" required pattern="[a-zA-Z0-9]+"></input>
+						</div>
+					</div>
+
+					<div class ="row  message">
+						<div class="col-md-3 col-md-offset-1">
+							<label class="col-md-12 color">{{ message1 }}</label> 
+						</div>
+						<div class="col-md-3 col-md-offset-5">
+							<label class="col-md-12 color">{{ message2 }}</label> 
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-md-3 col-md-offset-5">
+							<label class="col-md-7 text-align">Enter Base</label>
+						</div>
+					</div>
+					<div clas="row">
+						<div class="col-md-3 col-md-offset-5">
+							<input type="number" name="txtBase3" class="form-control text-box-size" min="2" max="712"  required></input> 
+						</div>
+					</div>
+					<div class="row gap">
+						<div class="col-md-3 col-md-offset-5">
+							<input type="submit" class="btn btn-primary col-md-offset-2" value="Calculate" name="calculate"></input>
+						</div>
+					</div>
+					<div class="row gap">
+						<div class="col-md-4 col-md-offset-5">
+							<label class="text-align">Result:</label>
+						</div>
+					</div>
+					<div class="row">
+						<div class="panel panel-default col-md-4 col-md-offset-4">
+							<div class="panel-body">
+								{{ result }}
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+</body>
+</html> 

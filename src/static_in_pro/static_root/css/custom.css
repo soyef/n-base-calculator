@@ -1,0 +1,57 @@
+.text-box-size
+{
+	width:200px !important;
+}
+
+.gap
+{
+	margin-top: 100px;
+}
+
+.result
+{
+	color: blue;
+}
+
+.message
+{
+	height: 30px;
+
+}
+.text-align
+{
+	text-align: center;
+	margin-left: 10px;
+}
+
+.result
+{
+	width: 200px;
+	border-style: solid;
+	border-width: 1px;
+	border-radius: 2px;
+}
+.head
+{
+	margin-bottom: 0px !important;
+	margin-top: 0px !important;
+}
+.size 
+{
+	width: 250px !important;
+	height: 600px !important;
+}
+.padding-label
+{
+	padding-left: 400px;
+}
+.tablo
+{
+	font-size: 13px !important;
+	margin: 0px !important;
+	padding: 2px !important;
+}
+.color
+{
+	color :red;
+}
